@@ -1,0 +1,83 @@
+.bar-dark {
+  background-color: rgb(39, 39, 39) !important;
+}
+
+.scroll-content {
+  background-color: #2A2C31;
+}
+
+.day {
+  background-color: rgb(19, 118, 164) !important;
+  border-color: rgb(19, 118, 164) !important;
+  color: #fff;
+  text-align: center;
+}
+
+.match {
+  background-color: #444444 !important;
+  border-color: rgb(37, 36, 36) !important;
+}
+
+.match .blue {
+  float: left;
+  text-align: left;
+}
+
+.match .blue .team-info {
+  float: left;
+}
+
+.match .blue .team-logo {
+  float: left;
+}
+
+.match .red {
+  float: right;
+  text-align: right;
+}
+
+.match .red .team-logo {
+  float: right;
+}
+
+.match .red .team-info {
+  float: right;
+}
+
+.match .team-logo {
+  width: 30%;
+  margin-top: 5%;
+}
+
+.match .blue, .match .red {
+  width: 50%;
+}
+
+.match .team-info {
+  margin: 10px 15px;
+  color: #fff;
+}
+
+.match .team-info .team-score {
+  font-size: 80%;
+  color: rgb(153, 153, 153);
+  font-weight: bold;
+}
+
+.setup {
+  text-align: center;
+  padding-top: 25%;
+}
+
+.setup .select-region {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.setup .select-region .item {
+  text-align: left;
+  color: #fff;
+  background-color: #1F1F1F;
+  border-color: #444444;
+  border-radius: 0;
+}

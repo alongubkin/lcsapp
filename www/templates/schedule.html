@@ -1,0 +1,45 @@
+<ion-view title="Week {{ currentWeek }}">
+  <ion-nav-buttons side="left">
+    <button 
+      ng-disabled="currentWeek === 1"
+      class="button button-icon icon icon ion-ios7-arrow-back"
+      ui-sref="app.schedule({ week: currentWeek - 1 })">
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button 
+      ng-disabled="currentWeek === 11"
+      class="button button-icon icon icon ion-ios7-arrow-forward"
+      ui-sref="app.schedule({ week: currentWeek + 1 })">
+    </button>
+  </ion-nav-buttons>  
+  <ion-content class="has-header" >
+    <ion-list ng-if="matches.length > 0">
+      <ion-item ng-repeat="match in matches" 
+        ng-class="{ 'match': match.type !== 'day', 'day': match.type === 'day', 'today': match.today}">
+        <ng-switch on="match.type">
+          <div ng-switch-when="day">
+            {{ match.today ? 'Today' : (match.dateTime | date) }}
+          </div>
+          <div ng-switch-default>
+            <div class="blue">
+              <img src="http://na.lolesports.com{{ match.contestants.blue.logoURL }}" class="team-logo">
+              <div class="team-info">
+                <div class="team-title">{{ match.contestants.blue.acronym }}</div>
+                <div class="team-score">{{ match.contestants.blue.wins }}W - {{ match.contestants.blue.losses }}L</div>
+              </div>
+            </div>
+            
+            <div class="red">
+              <img src="http://na.lolesports.com{{ match.contestants.red.logoURL }}" class="team-logo">
+              <div class="team-info">
+                <div class="team-title">{{ match.contestants.red.acronym }}</div>
+                <div class="team-score">{{ match.contestants.blue.wins }}W - {{ match.contestants.blue.losses }}L</div>
+              </div>
+            </div>
+          </div>
+        </ng-switch>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
