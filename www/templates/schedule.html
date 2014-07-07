@@ -21,20 +21,24 @@
           <div ng-switch-when="day">
             {{ match.today ? 'Today' : (match.dateTime | date) }}
           </div>
-          <div ng-switch-default>
-            <div class="blue">
+          <div ng-switch-default class="row row-center">
+            <div class="col blue">
               <img src="http://na.lolesports.com{{ match.contestants.blue.logoURL }}" class="team-logo">
               <div class="team-info">
-                <div class="team-title">{{ match.contestants.blue.acronym }}</div>
+                <div class="team-title" ng-class="{ win: match.gamesInfo.game0.winnerId === match.contestants.blue.id }">{{ match.contestants.blue.acronym }}</div>
                 <div class="team-score">{{ match.contestants.blue.wins }}W - {{ match.contestants.blue.losses }}L</div>
               </div>
             </div>
             
-            <div class="red">
+            <div class="col col-10 versus">
+              vs
+            </div>
+            
+            <div class="col red">
               <img src="http://na.lolesports.com{{ match.contestants.red.logoURL }}" class="team-logo">
               <div class="team-info">
-                <div class="team-title">{{ match.contestants.red.acronym }}</div>
-                <div class="team-score">{{ match.contestants.blue.wins }}W - {{ match.contestants.blue.losses }}L</div>
+                <div class="team-title" ng-class="{ win: match.gamesInfo.game0.winnerId === match.contestants.red.id }">{{ match.contestants.red.acronym }}</div>
+                <div class="team-score">{{ match.contestants.red.wins }}W - {{ match.contestants.red.losses }}L</div>
               </div>
             </div>
           </div>

@@ -14,12 +14,16 @@
 }
 
 .match {
+  padding: 5px;
   background-color: #444444 !important;
   border-color: rgb(37, 36, 36) !important;
 }
 
+.match .col {
+  padding: 5px 0;
+}
+
 .match .blue {
-  float: left;
   text-align: left;
 }
 
@@ -32,7 +36,6 @@
 }
 
 .match .red {
-  float: right;
   text-align: right;
 }
 
@@ -45,8 +48,7 @@
 }
 
 .match .team-logo {
-  width: 30%;
-  margin-top: 5%;
+  width: 50px;
 }
 
 .match .blue, .match .red {
@@ -54,14 +56,34 @@
 }
 
 .match .team-info {
-  margin: 10px 15px;
+  margin-top: 5%;
   color: #fff;
+}
+
+.match .blue .team-info {
+  margin-left: 10px;
+}
+
+.match .red .team-info {
+  margin-right: 10px;
 }
 
 .match .team-info .team-score {
   font-size: 80%;
   color: rgb(153, 153, 153);
   font-weight: bold;
+}
+
+.match .win {
+  background: url('../img/head-to-head-icons.png') no-repeat;
+  background-position: 0 -580px;
+  padding-left: 18px;
+}
+
+.match .versus {
+  color: #999; 
+  font-size: 105%;
+  text-align: center;
 }
 
 .setup {
