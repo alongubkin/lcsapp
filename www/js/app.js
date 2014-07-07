@@ -1,5 +1,6 @@
 angular.module('lcs', ['ionic', 
-                       'ngStorage', 
+                       'ngStorage',
+                       'angularMoment',
                        'lcs.controllers', 
                        'lcs.services',
                        'lcs.directives'])
