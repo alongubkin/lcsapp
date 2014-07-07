@@ -139,3 +139,7 @@
   z-index: 3;
   color: #fff;
 }
+
+.bar-subheader.bar-dark {
+  background-color: #111 !important;
+}

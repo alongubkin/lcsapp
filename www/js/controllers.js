@@ -7,6 +7,10 @@ angular.module('lcs.controllers', [])
       delete $localStorage.region
       $state.go('setup');
     };
+    
+    $scope.schedule = function () {
+      $state.go('app.schedule', { week: $localStorage.currentWeek });
+    };
   })
 
   .controller('SetupCtrl', function ($scope, $rootScope, $state, $localStorage, $ionicViewService, ScheduleService) {
@@ -24,10 +28,11 @@ angular.module('lcs.controllers', [])
     };
     
     function findWeek() {
-
       $scope.loading = true;
       ScheduleService.getCurrentWeekForRegion($localStorage.region)
         .then(function (week) {
+          $localStorage.currentWeek = week;
+          
           $rootScope.$viewHistory.histories = {};
           $state.go('app.schedule', { week: week });
         });
