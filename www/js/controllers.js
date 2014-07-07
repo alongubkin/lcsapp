@@ -10,6 +10,8 @@ angular.module('lcs.controllers', [])
   })
 
   .controller('SetupCtrl', function ($scope, $rootScope, $state, $localStorage, $ionicViewService, ScheduleService) {
+    $scope.loading = false;
+    
     if ($localStorage.region) {
       findWeek();
     } else {
@@ -22,6 +24,8 @@ angular.module('lcs.controllers', [])
     };
     
     function findWeek() {
+
+      $scope.loading = true;
       ScheduleService.getCurrentWeekForRegion($localStorage.region)
         .then(function (week) {
           $rootScope.$viewHistory.histories = {};

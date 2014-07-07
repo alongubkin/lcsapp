@@ -121,3 +121,17 @@
   background-image: linear-gradient(0deg, rgb(19, 118, 164), rgb(19, 118, 164) 50%, transparent 50%);
   color: #fff;
 }
+
+.progress-bar {
+  font-size: 36px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 36px;
+  width: 36px;
+  z-index: 3;
+  color: #fff;
+}

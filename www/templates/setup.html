@@ -1,6 +1,7 @@
 <ion-content class="setup">
   <img src="img/logo.png">
-  <div class="list list-inset select-region" ng-if="showRegions">
+  <i class="icon ion-refreshing progress-bar" style="top: 200%;" ng-if="loading"></i>
+  <div class="list list-inset select-region" ng-if="showRegions" ng-hide="loading">
     <a class="item item-icon-right" ng-click="selectRegion('eu')">
       Europe 
       <i class="icon ion-chevron-right icon-accessory"></i>
