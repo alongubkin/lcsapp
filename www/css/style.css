@@ -273,7 +273,7 @@ max-width: 15%;
   margin-top: 180px;
 }
 
-.schedule .progress-bar-animated {
+.schedule .progress-bar-animated, .match-details .progress-bar-animated  {
   margin-top: 150px;
 }
 
@@ -290,7 +290,7 @@ max-width: 15%;
   -webkit-transform: scale(0.5);
 }
 
-.team .item{
+.team .item {
   padding: 5px;
   background-color: #444444 !important;
   border-color: rgb(37, 36, 36) !important;
@@ -301,7 +301,69 @@ max-width: 15%;
   background-color: rgb(19, 118, 164) !important;
   border-color: rgb(19, 118, 164) !important;
   color: #fff;
-  
+}
+
+.player-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100px;
+  display: block;
+  overflow: hidden
+}
+
+.team-details {
+  margin-bottom: 10px;
+}
+
+.team-details .team-logo {
+  width: 100px;
+}
+
+.team-details .team-info {
+  color: #fff;
+  padding-left: 25px;
+}
+
+.team-details .team-info .team-title {
+  font-size: 40px;
+}
+
+.team-details .team-info .team-score {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.gradient-box {
+  padding: 23px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  background-color: #2d2d2d;
+  -webkit-box-shadow: 0 3px 4px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.1);
+  -moz-box-shadow: 0 3px 4px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow: 0 3px 4px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.1);
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, rgba(0,0,0,0.2)), color-stop(100%, rgba(255,255,255,0.2)));
+  background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0.2) 100%);
+  background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0.2) 100%);
+  background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0.2) 100%);
+  background-image: linear-gradient(bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0.2) 100%);
+}
+
+.unfinished {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
 }
 
 

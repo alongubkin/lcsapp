@@ -57,15 +57,28 @@ angular.module('lcs.services', [])
         return $q.all([
           $http.get('http://na.lolesports.com/tourney/match/' + matchId),
           $http.get('http://ddragon.leagueoflegends.com/cdn/4.11.3/data/en_US/champion.json'),
-          $http.get('http://ddragon.leagueoflegends.com/cdn/4.11.3/data/en_US/item.json')
+          $http.get('http://ddragon.leagueoflegends.com/cdn/4.11.3/data/en_US/item.json'),
+          $http.get('http://eune.lolesports.com/api/match/' + matchId + '.json')
         ]).then(function (values) {
-          var match = {};
+          var match = {
+            name: values[3].data.name,
+            dateTime: values[3].data.dateTime,
+            isLive: values[3].data.isLive,
+            isFinished: values[3].data.isFinished === '1'
+          };
           
           var scriptBegin = '<script>jQuery.extend(Drupal.settings, ';
           var jsonBegin = values[0].data.indexOf(scriptBegin) + scriptBegin.length;
           
           var json = values[0].data.substring(jsonBegin, values[0].data.indexOf(');</script>', jsonBegin));
-          var data = JSON.parse(json).esportsDataDump.matchDataDump;
+          var data = JSON.parse(json).esportsDataDump;
+          
+          if (!data.matchDataDump) {
+            return match;
+          } else {
+            data = data.matchDataDump;
+          }
+          
           var teams = data[Object.keys(data)[0]];
           var teamIds = Object.keys(teams);
           
@@ -106,8 +119,20 @@ angular.module('lcs.services', [])
             return items;
           }
           
-          function parseTeam(json) {            
-            var team = { players: [] };
+          function parseTeam(teamId) {   
+            var json = teams[teamId];
+            var matchTeam = values[3].data.contestants[_.findKey(values[3].data.contestants, function (team) {
+              return team.id === teamId;
+            })];
+            
+            var team = { 
+              name: matchTeam.acronym,
+              logoURL: matchTeam.logoURL,
+              wins: matchTeam.wins,
+              losses: matchTeam.losses,
+              players: [] 
+            };
+            
             for (var player in json) {
               team.players.push({ 
                 champion: _.extend(getChampion(json[player].champion[Object.keys(json[player].champion)[0]]), {
@@ -126,8 +151,8 @@ angular.module('lcs.services', [])
             
             return team;
           }
-          
-          match.teams = [parseTeam(teams[teamIds[0]]), parseTeam(teams[teamIds[1]])];
+     
+          match.teams = [parseTeam(teamIds[0]), parseTeam(teamIds[1])];
           return match;
         });
        

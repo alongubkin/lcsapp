@@ -1,11 +1,31 @@
-<ion-view title="Match Details">
+<ion-view title="{{ match.name }}">
   <ion-nav-buttons side="left">
     
   </ion-nav-buttons>
-  <ion-content class="has-header match-details">
+  <div class="bar bar-subheader bar-dark" ng-if="match.isFinished">  
+    <h2 class="title" ng-if="!match.isLive && !loading">played <span am-time-ago="match.dateTime"></span></h2>    
+    <h2 class="title" ng-if="match.isLive">LIVE</h2>
+  </div>    
+  <ion-content class="has-header match-details" ng-class="{ 'has-subheader': match.isFinished }">
     <progress-bar ng-hide="!loading"></progress-bar>
+
+    <div class="unfinished" ng-if="!match.isFinished" ng-hide="loading">
+      This game will begin <span am-time-ago="match.dateTime"></span>.
+    </div>
     
-    <div class="list team" ng-repeat="team in match.teams">
+    
+    <div class="list team" ng-repeat="team in match.teams" ng-if="match.isFinished">
+      <div class="team-details row row-center">
+        <div class="col col-50 gradient-box">
+          <img src="http://na.lolesports.com{{ team.logoURL }}" class="team-logo">
+        </div>
+        
+        <div class="col team-info">
+          <div class="team-title">{{ team.name }}</div>
+          <div class="team-score">{{ team.wins }}W - {{ team.losses }}L</div>
+        </div>
+      </div>
+      
       <div class="item row row-header">
         <div class="col">Player</div>
         <div class="col col-20">KDA</div>
@@ -13,7 +33,7 @@
         <div class="col col-15">CS</div>
       </div>
       <div class="item row row-center" ng-repeat="player in team.players">
-        <div class="col">{{ player.name }}</div>
+        <div class="col player-name">{{ player.name }}</div>
         <div class="col col-20">{{ player.kills }}/{{ player.deaths }}/{{ player.assists }}</div>
         <div class="col">
           <div class="game-item" ng-repeat="item in player.items">
@@ -30,28 +50,7 @@
     </div>
     
     
-    <!--
-    <div ng-switch-default class="row row-center">
-      <div class="col blue">
-        <img src="http://na.lolesports.com{{ match.contestants.blue.logoURL }}" class="team-logo">
-        <div class="team-info">
-          <div class="team-title" ng-class="{ win: match.gamesInfo.game0.winnerId === match.contestants.blue.id }">{{ match.contestants.blue.acronym }}</div>
-          <div class="team-score">{{ match.contestants.blue.wins }}W - {{ match.contestants.blue.losses }}L</div>
-        </div>
-      </div>
-      
-      <div class="col col-10 versus">
-        vs
-      </div>
-      
-      <div class="col red">
-        <img src="http://na.lolesports.com{{ match.contestants.red.logoURL }}" class="team-logo">
-        <div class="team-info">
-          <div class="team-title" ng-class="{ win: match.gamesInfo.game0.winnerId === match.contestants.red.id }">{{ match.contestants.red.acronym }}</div>
-          <div class="team-score">{{ match.contestants.red.wins }}W - {{ match.contestants.red.losses }}L</div>
-        </div>
-      </div>
-    </div>
-    -->
+
+    
   </ion-content>
 </ion-view>
