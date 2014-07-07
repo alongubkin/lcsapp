@@ -72,7 +72,7 @@ angular.module('lcs.controllers', [])
       
       if ($scope.hasToday) { 
         $timeout(function () {
-            $ionicScrollDelegate.scrollTo(0, document.querySelector('.today').getBoundingClientRect().top, true);
+            $ionicScrollDelegate.scrollTo(0, document.querySelector('.today').getBoundingClientRect().top, false);
         }, 1000);
       }
     });
