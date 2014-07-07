@@ -22,7 +22,7 @@
         ng-class="{ 'match': match.type !== 'day', 'day': match.type === 'day', 'today': match.today}">
         <ng-switch on="match.type">
           <div ng-switch-when="day">
-            {{ match.today ? 'Today' : (match.dateTime | date) }}
+            {{ match.today ? 'Today' : (match.dateTime | date:'EEEE, MMMM d') }}
           </div>
           <div ng-switch-default class="row row-center">
             <div class="col blue">
