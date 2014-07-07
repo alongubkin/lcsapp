@@ -103,3 +103,21 @@
   border-color: #444444;
   border-radius: 0;
 }
+
+.menu ion-item {
+  background-color: #2A2C31 !important;
+  color: #fff;
+  border-color: #555;
+}
+
+
+.menu ion-item.activated {
+  border-color: #555;
+}
+
+.bar.bar-positive {
+  border-color: #145fd7;
+  background-color: rgb(19, 118, 164);
+  background-image: linear-gradient(0deg, rgb(19, 118, 164), rgb(19, 118, 164) 50%, transparent 50%);
+  color: #fff;
+}

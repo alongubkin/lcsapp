@@ -2,8 +2,11 @@ var _historySaved = false;
 
 angular.module('lcs.controllers', [])
 
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
-
+  .controller('AppCtrl', function ($scope, $state, $localStorage) {
+    $scope.changeRegion = function () {
+      delete $localStorage.region
+      $state.go('setup');
+    };
   })
 
   .controller('SetupCtrl', function ($scope, $rootScope, $state, $localStorage, $ionicViewService, ScheduleService) {
