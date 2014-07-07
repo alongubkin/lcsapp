@@ -357,6 +357,7 @@ max-width: 15%;
   background-image: -moz-linear-gradient(bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0.2) 100%);
   background-image: -o-linear-gradient(bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0.2) 100%);
   background-image: linear-gradient(bottom, rgba(0,0,0,0.2) 0%,rgba(255,255,255,0.2) 100%);
+  width: 150px;
 }
 
 .unfinished {
