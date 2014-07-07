@@ -1,4 +1,8 @@
-angular.module('lcs', ['ionic', 'ngStorage', 'lcs.controllers', 'lcs.services'])
+angular.module('lcs', ['ionic', 
+                       'ngStorage', 
+                       'lcs.controllers', 
+                       'lcs.services',
+                       'lcs.directives'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

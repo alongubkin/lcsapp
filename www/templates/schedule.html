@@ -1,7 +1,6 @@
 <ion-view title="Schedule">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-
   </ion-nav-buttons>
   <div class="bar bar-subheader bar-dark">
     <button 
@@ -16,9 +15,9 @@
       ui-sref="app.schedule({ week: currentWeek + 1 })">
     </button>      
   </div>  
-  <ion-content class="has-header has-subheader">
-
-    <ion-list ng-if="matches.length > 0">
+  <ion-content class="has-header has-subheader schedule">
+    <progress-bar ng-hide="matches.length > 0"></progress-bar>
+    <ion-list ng-hide="matches.length === 0">
       <ion-item ng-repeat="match in matches" 
         ng-class="{ 'match': match.type !== 'day', 'day': match.type === 'day', 'today': match.today}">
         <ng-switch on="match.type">
