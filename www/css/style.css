@@ -1,9 +1,16 @@
-.bar-dark {
-  background-color: rgb(39, 39, 39) !important;
+body, html, .scroll-content {
+  background-color: #444;
 }
 
-.scroll-content {
-  background-color: #444;
+.bar-dark {
+  background-color: #1f1f1f !important;
+}
+
+.bar-subheader.bar-dark {
+  background-color: #333 !important;
+  border-color: #444;
+  border: 0;
+  background-image: none;
 }
 
 .setup.scroll-content {
@@ -138,10 +145,6 @@
   width: 36px;
   z-index: 3;
   color: #fff;
-}
-
-.bar-subheader.bar-dark {
-  background-color: #111 !important;
 }
 
 .col-15 {
