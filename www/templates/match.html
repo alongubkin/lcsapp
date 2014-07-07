@@ -16,8 +16,10 @@
     
     <div class="list team" ng-repeat="team in match.teams" ng-if="match.isFinished">
       <div class="team-details row row-center">
-        <div class="col col-50 gradient-box">
+        <div class="col col-50">
+        <div class="gradient-box">
           <img src="http://na.lolesports.com{{ team.logoURL }}" class="team-logo">
+        </div>
         </div>
         
         <div class="col team-info">
