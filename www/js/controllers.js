@@ -91,10 +91,24 @@ angular.module('lcs.controllers', [])
         $ionicScrollDelegate.scrollTop(true);
       }, 200);
     }
+    
+    $scope.goToMatch = function (match) {
+      $state.go('app.match', { matchId: match.matchId });
+    };
   })
   
   .controller('StandingsCtrl', function ($scope, $localStorage, StandingsService) {
     StandingsService.getStandings($localStorage.region).then(function (teams) {
       $scope.teams = teams;
+    });
+  })
+  
+  .controller('ViewMatchCtrl', function ($scope, $stateParams, MatchService) {
+    $scope.loading = true;
+    MatchService.getMatch($stateParams.matchId).then(function (match) {
+      console.log(match);
+      
+      $scope.match = match;
+      $scope.loading = false;
     });
   });

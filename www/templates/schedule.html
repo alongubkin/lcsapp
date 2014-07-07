@@ -19,7 +19,8 @@
     <progress-bar ng-hide="matches.length > 0"></progress-bar>
     <ion-list ng-hide="matches.length === 0">
       <ion-item ng-repeat="match in matches" 
-        ng-class="{ 'match': match.type !== 'day', 'day': match.type === 'day', 'today': match.today}">
+        ng-class="{ 'match': match.type !== 'day', 'day': match.type === 'day', 'today': match.today}"
+        ng-click="goToMatch(match)">
         <ng-switch on="match.type">
           <div ng-switch-when="day">
             {{ match.today ? 'Today' : (match.dateTime | date:'EEEE, MMMM d') }}

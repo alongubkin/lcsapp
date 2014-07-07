@@ -49,6 +49,16 @@ angular.module('lcs', ['ionic',
             controller: 'StandingsCtrl'
           }
         }
+      })
+      
+      .state('app.match', {
+        url: '/match/:matchId',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/match.html',
+            controller: 'ViewMatchCtrl'
+          }
+        }
       });
     
     $urlRouterProvider.otherwise('/setup');

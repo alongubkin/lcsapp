@@ -49,4 +49,88 @@ angular.module('lcs.services', [])
           })
       }
     };
+  })
+  
+  .factory('MatchService', function ($http, $q) {
+    return {
+      getMatch: function (matchId) {
+        return $q.all([
+          $http.get('http://na.lolesports.com/tourney/match/' + matchId),
+          $http.get('http://ddragon.leagueoflegends.com/cdn/4.11.3/data/en_US/champion.json'),
+          $http.get('http://ddragon.leagueoflegends.com/cdn/4.11.3/data/en_US/item.json')
+        ]).then(function (values) {
+          var match = {};
+          
+          var scriptBegin = '<script>jQuery.extend(Drupal.settings, ';
+          var jsonBegin = values[0].data.indexOf(scriptBegin) + scriptBegin.length;
+          
+          var json = values[0].data.substring(jsonBegin, values[0].data.indexOf(');</script>', jsonBegin));
+          var data = JSON.parse(json).esportsDataDump.matchDataDump;
+          var teams = data[Object.keys(data)[0]];
+          var teamIds = Object.keys(teams);
+          
+          function getChampion(championId) {
+            var champion = values[1].data.data[_.findKey(values[1].data.data, function (champion) {
+              return champion.key === championId;
+            })];
+                      
+            return {
+              name: champion.name,
+              image: champion.image.sprite
+            };
+          }
+          
+          function getImageUrl(html) {
+            var startTag = '<img src="';
+            var start = html.indexOf(startTag) + startTag.length;
+            
+            return html.substring(start, html.indexOf('"', start));
+          }
+          
+          function getItems(itemsIds) {
+            var arr = itemsIds.split(',');
+            var items = [];
+            
+            for (var i = 0; i < arr.length; i++) {
+              var json = values[2].data.data[arr[i]];
+              if (json) {
+                items.push({
+                  name: json.name,
+                  image: json.image.sprite,
+                  x: json.image.x,
+                  y: json.image.y
+                });
+              }
+            }
+            
+            return items;
+          }
+          
+          function parseTeam(json) {            
+            var team = { players: [] };
+            for (var player in json) {
+              team.players.push({ 
+                champion: _.extend(getChampion(json[player].champion[Object.keys(json[player].champion)[0]]), {
+                  level: json[player].champion_level
+                }),
+                kills: json[player].kills,
+                deaths: json[player].deaths,
+                assists: json[player].assists,
+                minions: json[player].minion_kills,
+                name: json[player]['player field'],
+                image: getImageUrl(json[player]['player image']),
+                gold: json[player].total_gold,
+                items: getItems(json[player].items)
+              });
+            }
+            
+            return team;
+          }
+          
+          match.teams = [parseTeam(teams[teamIds[0]]), parseTeam(teams[teamIds[1]])];
+          return match;
+        });
+       
+      }
+    };
   });

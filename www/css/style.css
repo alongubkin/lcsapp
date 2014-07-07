@@ -269,10 +269,39 @@ max-width: 15%;
   100% {
     transform: translate(15px); } }
     
-.setup .progress-bar-animated, .standings .progress-bar-animated  {
-  margin-top: 200px;
+.progress-bar-animated {
+  margin-top: 180px;
 }
 
 .schedule .progress-bar-animated {
   margin-top: 150px;
 }
+
+.game-item {
+  float: left; 
+  width: 24px; 
+  height: 24px;
+}
+
+.game-item .game-item-image {
+  width:48px; 
+  height: 48px;  
+  -webkit-transform-origin: 0 0; 
+  -webkit-transform: scale(0.5);
+}
+
+.team .item{
+  padding: 5px;
+  background-color: #444444 !important;
+  border-color: rgb(37, 36, 36) !important;
+  color: #fff;
+}
+
+.team .row-header {
+  background-color: rgb(19, 118, 164) !important;
+  border-color: rgb(19, 118, 164) !important;
+  color: #fff;
+  
+}
+
+
