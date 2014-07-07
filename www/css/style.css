@@ -3,6 +3,10 @@
 }
 
 .scroll-content {
+  background-color: #444;
+}
+
+.setup.scroll-content {
   background-color: #2A2C31;
 }
 
@@ -99,13 +103,13 @@
 .setup .select-region .item {
   text-align: left;
   color: #fff;
-  background-color: #1F1F1F;
+  background-color: #383838;
   border-color: #444444;
   border-radius: 0;
 }
 
-.menu ion-item {
-  background-color: #2A2C31 !important;
+.sidemenu ion-item {
+  background-color: #444444 !important;
   color: #fff;
   border-color: #555;
 }
