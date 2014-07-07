@@ -3,22 +3,19 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 
   </ion-nav-buttons>
-  <ion-nav-buttons side="right">
-
-  </ion-nav-buttons> 
-    <div class="bar bar-subheader bar-dark">
-      <button 
-        ng-disabled="currentWeek === 1"
-        class="button button-icon icon icon ion-ios7-arrow-back"
-        ui-sref="app.schedule({ week: currentWeek - 1 })">
-      </button>    
-      <h2 class="title">Week {{ currentWeek }}</h2>
-      <button 
-        ng-disabled="currentWeek === 11"
-        class="button button-icon icon icon ion-ios7-arrow-forward"
-        ui-sref="app.schedule({ week: currentWeek + 1 })">
-      </button>      
-    </div>  
+  <div class="bar bar-subheader bar-dark">
+    <button 
+      ng-disabled="currentWeek === 1"
+      class="button button-icon icon icon ion-ios7-arrow-back"
+      ui-sref="app.schedule({ week: currentWeek - 1 })">
+    </button>    
+    <h2 class="title">Week {{ currentWeek }}</h2>
+    <button 
+      ng-disabled="currentWeek === 11"
+      class="button button-icon icon icon ion-ios7-arrow-forward"
+      ui-sref="app.schedule({ week: currentWeek + 1 })">
+    </button>      
+  </div>  
   <ion-content class="has-header has-subheader">
 
     <ion-list ng-if="matches.length > 0">

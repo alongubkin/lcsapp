@@ -29,9 +29,19 @@ angular.module('lcs', ['ionic', 'ngStorage', 'lcs.controllers', 'lcs.services'])
       .state('app.schedule', {
         url: "/schedule/:week",
         views: {
-          'menuContent' :{
+          'menuContent': {
             templateUrl: "templates/schedule.html",
             controller: "ScheduleCtrl"
+          }
+        }
+      })
+      
+      .state('app.standings', {
+        url: '/standings',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/standings.html',
+            controller: 'StandingsCtrl'
           }
         }
       });

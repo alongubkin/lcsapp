@@ -15,14 +15,18 @@
     </header>
     <ion-content class="has-header">
       <ion-list class="sidemenu">
-        <ion-item class="item-icon-right" nav-clear menu-close ng-click="schedule()">
+        <a class="item item-icon-right" nav-clear menu-close ng-click="schedule()">
           Schedule
           <i class="icon ion-chevron-right icon-accessory"></i>
-        </ion-item>      
-        <ion-item class="item-icon-right" nav-clear menu-close ng-click="changeRegion()">
+        </a>
+        <a class="item item-icon-right" nav-clear menu-close ui-sref="app.standings">
+          Standings
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </a>        
+        <a class="item item-icon-right" nav-clear menu-close ng-click="changeRegion()">
           Change Region
           <i class="icon ion-chevron-right icon-accessory"></i>
-        </ion-item>
+        </a>
       </ion-list>
     </ion-content>
   </ion-side-menu>

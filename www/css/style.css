@@ -108,14 +108,14 @@
   border-radius: 0;
 }
 
-.sidemenu ion-item {
+.sidemenu a {
   background-color: #444444 !important;
   color: #fff;
   border-color: #555;
 }
 
 
-.menu ion-item.activated {
+.menu a.activated {
   border-color: #555;
 }
 
@@ -143,3 +143,27 @@
 .bar-subheader.bar-dark {
   background-color: #111 !important;
 }
+
+.col-15 {
+-webkit-box-flex: 0;
+-webkit-flex: 0 0 15%;
+-moz-box-flex: 0;
+-moz-flex: 0 0 15%;
+-ms-flex: 0 0 15%;
+flex: 0 0 15%;
+max-width: 15%;
+}
+
+.standings .item {
+  padding: 10px;
+  background-color: #444444 !important;
+  border-color: rgb(37, 36, 36) !important;
+  color: #fff;
+}
+
+.standings .row-head.item {
+  background-color: rgb(19, 118, 164) !important;
+  border-color: rgb(19, 118, 164) !important;
+  font-weight: bold;
+}
+

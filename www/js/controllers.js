@@ -60,7 +60,7 @@ angular.module('lcs.controllers', [])
         }
       }
     } 
-    
+
     ScheduleService.getScheduleForWeek($scope.currentWeek).then(function (days) {
       $scope.matches = [];
       $scope.hasToday = false;
@@ -91,4 +91,10 @@ angular.module('lcs.controllers', [])
         $ionicScrollDelegate.scrollTop(true);
       }, 200);
     }
+  })
+  
+  .controller('StandingsCtrl', function ($scope, $localStorage, StandingsService) {
+    StandingsService.getStandings($localStorage.region).then(function (teams) {
+      $scope.teams = teams;
+    });
   });
