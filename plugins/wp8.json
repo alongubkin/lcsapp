@@ -1,0 +1,56 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"AdMob\"><param name=\"wp-package\" value=\"AdMob\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"wp-package\" value=\"DebugConsole\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"wp-package\" value=\"Device\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "Properties/WMAppManifest.xml": {
+                "parents": {
+                    "/Deployment/App/Capabilities": [
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_IDENTITY_DEVICE\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.google.playservices": {
+            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+        },
+        "com.ionic.keyboard": {
+            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+        },
+        "com.rjfun.cordova.plugin.admob": {
+            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+        }
+    },
+    "dependent_plugins": {}
+}
