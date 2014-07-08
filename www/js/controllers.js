@@ -98,6 +98,7 @@ angular.module('lcs.controllers', [])
       $scope.teams = [];
       StandingsService.getStandings($localStorage.region).then(function (teams) {
         $scope.teams = teams;
+        $scope.$broadcast('scroll.refreshComplete');
       });
     };
     
