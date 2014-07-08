@@ -10,13 +10,11 @@
   </author>
   <content src="index.html" />
   <access origin="*" />
+  
   <preference name="webviewbounce" value="false" />
   <preference name="UIWebViewBounce" value="false" />
   <preference name="DisallowOverscroll" value="true" />
-
-  <!-- Don't store local date in an iCloud backup. Turn this to "cloud" to enable storage 
-       to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
-  -->
+  <preference name="universal" value="false" />
   <preference name="BackupWebStorage" value="none" />
 
   <feature name="StatusBar">
@@ -26,4 +24,20 @@
   <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
   <gap:plugin name="org.apache.cordova.console" version="0.2.7" />
   <gap:plugin name="com.ionic.keyboard" version="1.0.1" />
+  
+  <icon src="icon.png" />
+  
+  <icon gap:platform="ios" src="res/icon/ios/icon-57.png" width="57" height="57" />
+  <icon gap:platform="ios" src="res/icon/ios/icon-57-2x.png" width="114" height="114" />
+  <icon gap:platform="ios" src="res/icon/ios/icon-72.png" width="72" height="72" />
+  <icon gap:platform="ios" src="res/icon/ios/icon-72-2x.png" width="144" height="144" />
+  
+  <icon gap:platform="android" src="res/icon/android/icon-36-ldpi.png" width="36" height="36" />
+  <icon gap:platform="android" src="res/icon/android/icon-48-mdpi.png" width="48" height="48" />
+  <icon gap:platform="android" src="res/icon/android/icon-72-hdpi.png" width="72" height="72" />
+  <icon gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" width="96" height="96" /> 
+  
+  <icon gap:platform="wp8" src="res/icon/windows-phone/icon-48.png" width="48" height="48" /> 
+  <icon gap:platform="wp8" src="res/icon/windows-phone/icon-62-tile.png" width="62" height="62" /> 
+  <icon gap:platform="wp8" src="res/icon/windows-phone/icon-173-tile.png" width="173" height="173" />  
 </widget>
