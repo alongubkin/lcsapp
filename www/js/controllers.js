@@ -1,7 +1,4 @@
-var _historySaved = false;
-
 angular.module('lcs.controllers', [])
-
   .controller('AppCtrl', function ($scope, $state, $localStorage) {
     $scope.changeRegion = function () {
       delete $localStorage.region
@@ -42,24 +39,6 @@ angular.module('lcs.controllers', [])
   .controller('ScheduleCtrl', function ($scope, $rootScope, $timeout, $state, $stateParams, $ionicScrollDelegate, ScheduleService) {
     $scope.weeks = [];
     $scope.currentWeek = parseInt($stateParams.week, 10);
-    
-    // Create a fake history of views so that animation
-    // will be in the right direction
-    // TODO: This should be in a different service.
-    if (!_historySaved) {
-      var stack = $rootScope.$viewHistory.histories.root.stack;
-
-      if (stack.length === 1) { 
-        $state.go('app.schedule', { week: 1});
-      } else {
-        var firstWeek = parseInt(stack[0].stateParams.week, 10);
-        if ($scope.currentWeek < firstWeek) {
-          $state.go('app.schedule', { week: $scope.currentWeek + 1});
-        } else {
-          _historySaved = true;
-        }
-      }
-    } 
 
     $scope.refresh = function () {
       $scope.matches = [];
