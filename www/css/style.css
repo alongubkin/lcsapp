@@ -273,7 +273,7 @@ max-width: 15%;
   margin-top: 180px;
 }
 
-.schedule .progress-bar-animated, .match-details .progress-bar-animated  {
+.schedule .progress-bar-animated  {
   margin-top: 150px;
 }
 
@@ -366,5 +366,3 @@ max-width: 15%;
   padding: 20px;
   font-size: 20px;
 }
-
-
