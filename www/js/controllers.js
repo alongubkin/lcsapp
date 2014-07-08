@@ -63,8 +63,7 @@ angular.module('lcs.controllers', [])
 
     $scope.refresh = function () {
       $scope.matches = [];
-      $scope.loading = true;
-            
+      
       ScheduleService.getScheduleForWeek($scope.currentWeek).then(function (days) {
         $scope.matches = [];
         $scope.hasToday = false;
