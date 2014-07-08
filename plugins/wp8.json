@@ -37,19 +37,19 @@
     },
     "installed_plugins": {
         "com.google.playservices": {
-            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+            "PACKAGE_NAME": "{4063850B-BB55-424D-ADB6-B6BE7A4406F6}"
         },
         "com.ionic.keyboard": {
-            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+            "PACKAGE_NAME": "{4063850B-BB55-424D-ADB6-B6BE7A4406F6}"
         },
         "com.rjfun.cordova.plugin.admob": {
-            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+            "PACKAGE_NAME": "{4063850B-BB55-424D-ADB6-B6BE7A4406F6}"
         },
         "org.apache.cordova.console": {
-            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+            "PACKAGE_NAME": "{4063850B-BB55-424D-ADB6-B6BE7A4406F6}"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "{E122FEB5-7F96-4C36-AEF2-CDD5E5B99C46}"
+            "PACKAGE_NAME": "{4063850B-BB55-424D-ADB6-B6BE7A4406F6}"
         }
     },
     "dependent_plugins": {}

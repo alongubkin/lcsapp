@@ -286,6 +286,8 @@ max-width: 15%;
 .game-item .game-item-image {
   width:48px; 
   height: 48px;  
+  transform-origin: 0 0;
+  transform: scale(0.5);
   -webkit-transform-origin: 0 0; 
   -webkit-transform: scale(0.5);
 }
