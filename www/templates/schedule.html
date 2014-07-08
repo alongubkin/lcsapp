@@ -2,6 +2,9 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="changeRegion()">{{ currentRegion }}</button>
+  </ion-nav-buttons>
   <div class="bar bar-subheader bar-dark">
     <button 
       ng-disabled="currentWeek === 1"

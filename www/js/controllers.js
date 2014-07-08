@@ -36,10 +36,11 @@ angular.module('lcs.controllers', [])
     }
   })
   
-  .controller('ScheduleCtrl', function ($scope, $rootScope, $timeout, $state, $stateParams, $ionicScrollDelegate, ScheduleService) {
+  .controller('ScheduleCtrl', function ($scope, $localStorage, $timeout, $state, $stateParams, $ionicScrollDelegate, ScheduleService) {
     $scope.weeks = [];
     $scope.currentWeek = parseInt($stateParams.week, 10);
-
+    $scope.currentRegion = $localStorage.region.toUpperCase();
+    
     $scope.refresh = function () {
       $scope.matches = [];
       
@@ -81,6 +82,17 @@ angular.module('lcs.controllers', [])
     
     $scope.goToMatch = function (match) {
       $state.go('app.match', { matchId: match.matchId });
+    };
+    
+    $scope.changeRegion = function () {
+      if ($localStorage.region === 'na') {
+        $localStorage.region = 'eu';
+      } else {
+        $localStorage.region = 'na';
+      }
+      
+      $scope.currentRegion = $localStorage.region.toUpperCase();
+      $scope.refresh();
     };
   })
   
