@@ -1,10 +1,5 @@
 angular.module('lcs.controllers', [])
   .controller('AppCtrl', function ($scope, $state, $localStorage) {
-    $scope.changeRegion = function () {
-      delete $localStorage.region
-      $state.go('setup');
-    };
-    
     $scope.schedule = function () {
       $state.go('app.schedule', { week: $localStorage.currentWeek });
     };
