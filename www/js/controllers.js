@@ -61,30 +61,39 @@ angular.module('lcs.controllers', [])
       }
     } 
 
-    ScheduleService.getScheduleForWeek($scope.currentWeek).then(function (days) {
+    $scope.refresh = function () {
       $scope.matches = [];
-      $scope.hasToday = false;
-      
-      days.forEach(function (day) {
-        var today = new Date();
-        today.setUTCHours(0, 0, 0, 0);
+      $scope.loading = true;
+            
+      ScheduleService.getScheduleForWeek($scope.currentWeek).then(function (days) {
+        $scope.matches = [];
+        $scope.hasToday = false;
         
-        var date = new Date(day.dateTime);
-        date.setUTCHours(0, 0, 0, 0);
+        days.forEach(function (day) {
+          var today = new Date();
+          today.setUTCHours(0, 0, 0, 0);
+          
+          var date = new Date(day.dateTime);
+          date.setUTCHours(0, 0, 0, 0);
 
-        var isToday = today.toISOString() == date.toISOString();
-        if (isToday) $scope.hasToday = true;
+          var isToday = today.toISOString() == date.toISOString();
+          if (isToday) $scope.hasToday = true;
+          
+          $scope.matches.push({ type: 'day', label: day.label, dateTime: day.dateTime, today: isToday });
+          $scope.matches = $scope.matches.concat(day.matches);
+        });
         
-        $scope.matches.push({ type: 'day', label: day.label, dateTime: day.dateTime, today: isToday });
-        $scope.matches = $scope.matches.concat(day.matches);
+        if ($scope.hasToday) { 
+          $timeout(function () {
+              $ionicScrollDelegate.scrollTo(0, document.querySelector('.today').getBoundingClientRect().top, false);
+          }, 1000);
+        }
+        
+        $scope.$broadcast('scroll.refreshComplete');
       });
-      
-      if ($scope.hasToday) { 
-        $timeout(function () {
-            $ionicScrollDelegate.scrollTo(0, document.querySelector('.today').getBoundingClientRect().top, false);
-        }, 1000);
-      }
-    });
+    } 
+    
+    $scope.refresh();
     
     if (!$scope.hasToday) {
       $timeout(function () {
