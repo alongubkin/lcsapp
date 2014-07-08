@@ -92,9 +92,28 @@ angular.module('lcs.controllers', [])
   })
   
   .controller('StandingsCtrl', function ($scope, $localStorage, StandingsService) {
-    StandingsService.getStandings($localStorage.region).then(function (teams) {
-      $scope.teams = teams;
-    });
+    $scope.currentRegion = $localStorage.region.toUpperCase();
+    
+    $scope.refresh = function () {
+      $scope.teams = [];
+      StandingsService.getStandings($localStorage.region).then(function (teams) {
+        $scope.teams = teams;
+      });
+    };
+    
+    $scope.refresh();
+    
+    $scope.changeRegion = function () {
+      if ($localStorage.region === 'na') {
+        $localStorage.region = 'eu';
+      } else {
+        $localStorage.region = 'na';
+      }
+      
+      $scope.currentRegion = $localStorage.region.toUpperCase();
+      $scope.refresh();
+    };
+    
   })
   
   .controller('ViewMatchCtrl', function ($scope, $stateParams, MatchService) {
